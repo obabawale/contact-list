@@ -1,26 +1,44 @@
 import React from 'react';
+import ContactList from './contactList';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const CONTACTS = [
+  {
+    id: 1,
+    name: "Olalekan Babawale",
+    age: 24,
+    gender: "Male"
+  },
+  {
+    id: 2,
+    name: "Babatope Ajepe",
+    age: 24,
+    gender: "Male"
+  },
+  {
+    id: 3,
+    name: "Ifeoluwa Amoo",
+    age: 24,
+    gender: "Male"
+  }
+]
+
+class App extends React.Component {
+  constructor() {
+    super()
+    this.state = {
+      count: 0,
+      contacts: CONTACTS 
+    }
+  }
+  render () {
+    return (
+      <div className="App">
+        <ContactList contacts={this.state.contacts}/> 
+      </div>
+    );
+  }
 }
 
 export default App;
